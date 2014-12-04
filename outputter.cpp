@@ -1,14 +1,17 @@
 #include <iostream>
 #include <string>
-#include <iostream>
+#include <iomanip>
 #include <fstream>
-//2ez4rtz
+#include <cmath>
+#include <stdlib.h>
+//2etoz4rtz
 using namespace std;
-int main()
+int main(int argc, char* argv[])
 {
 	ofstream muhprimes;
 	muhprimes.open("muhprimes.txt");
-	const int range = 100;
+	const std::string myRange = argv[1];
+	const int range = atoi(myRange.c_str());
 	bool primes[range];
 	for (int i = 0; i < range; i++)
 	{
@@ -24,7 +27,7 @@ int main()
 	for (int i = 0; i < range; i++)
 	{
 		
-		muhprimes << primes[i] << "   "<<i + 1<<endl;
+		muhprimes << primes[i] << std::setw(6)<<i + 1 << endl;
 	}
 	muhprimes.close();
 	cin.ignore();
